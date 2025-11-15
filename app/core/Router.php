@@ -16,19 +16,30 @@ class Router {
         }
 
         require_once ROOT_PATH . 'app/controllers/' . $this->controller . 'Controller.php';
-        
-        $controllerName = $this->controller . 'Controller';
-        $this->controller = new $controllerName();
+
+        // Instanciar el controlador (guardamos el nombre de cadena original)
+        $controllerString = $this->controller;
+        $controllerClass = $controllerString . 'Controller';
+        $controllerInstance = new $controllerClass();
 
         // Check method
         if (isset($url[1])) {
-            if (method_exists($this->controller, $url[1])) {
+            if (method_exists($controllerInstance, $url[1])) {
                 $this->method = $url[1];
                 unset($url[1]);
             }
         }
 
         $this->params = array_values($url);
+
+        // Inyectar contexto útil al propio controlador para que lo pase a las vistas
+        $controllerInstance->controllerName = $controllerString;
+        $controllerInstance->actionName = $this->method;
+        $controllerInstance->routeParams = $this->params;
+        $controllerInstance->fullUrl = $_SERVER['REQUEST_URI'] ?? null;
+
+        // Reemplazar el controlador en la propiedad y ejecutar
+        $this->controller = $controllerInstance;
 
         call_user_func_array([$this->controller, $this->method], $this->params);
     }

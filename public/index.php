@@ -6,7 +6,7 @@
     <title>Sistema de Informes - Redirigiendo...</title>
     <script>
     // Redirigir al login
-    window.location.href = '/formulario/login';
+    window.location.href = '/formularios/login';
     </script>
 </head>
 <body>
