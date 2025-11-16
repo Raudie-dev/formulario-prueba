@@ -64,7 +64,7 @@
                                         <div class="action-buttons">
                                             <a href="<?php echo BASE_URL; ?>dashboard/show/<?php echo $form['id']; ?>" class="btn-view" title="Ver"><i class="bi bi-eye-fill"></i>
                                             </a>
-                                            <a href="<?php echo BASE_URL; ?>pdf/generate/<?php echo $form['id']; ?>" class="btn-download" title="Descargar PDF"><i class="bi bi-file-earmark-arrow-down-fill"></i></a>
+                                            <a href="<?php echo BASE_URL; ?>pdf/generate/<?php echo $form['id']; ?>" class="btn-download" title="Ver PDF" target="_blank"><i class="bi bi-file-earmark-arrow-down-fill"></i></a>
                                             <a href="<?php echo BASE_URL; ?>dashboard/delete/<?php echo $form['id']; ?>" class="btn-delete" onclick="return confirm('¿Eliminar este formulario?')" title="Eliminar"><i class="bi bi-trash-fill"></i></a>
                                         </div>
                                     </td>

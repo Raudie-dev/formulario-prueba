@@ -108,7 +108,14 @@
                         <?php foreach ($images as $image): ?>
                             <div class="image-item">
                                 <p class="image-label"><?php echo htmlspecialchars($image['field_id']); ?></p>
-                                <img src="<?php echo htmlspecialchars($image['image_path']); ?>" alt="<?php echo htmlspecialchars($image['field_id']); ?>" style="max-width: 200px;">
+                                <?php $imgSrc = $image['web_path'] ?? $image['image_path'] ?? ''; ?>
+                                <?php if ($imgSrc): ?>
+                                    <a href="<?php echo htmlspecialchars($imgSrc); ?>" target="_blank">
+                                        <img src="<?php echo htmlspecialchars($imgSrc); ?>" alt="<?php echo htmlspecialchars($image['field_id']); ?>" style="max-width: 200px;">
+                                    </a>
+                                <?php else: ?>
+                                    <p>No disponible</p>
+                                <?php endif; ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -116,7 +123,7 @@
             <?php endif; ?>
 
             <div class="form-actions">
-                <a href="<?php echo BASE_URL; ?>pdf/generate/<?php echo $form['id']; ?>" class="btn-primary">Descargar PDF</a>
+                <a href="<?php echo BASE_URL; ?>pdf/generate/<?php echo $form['id']; ?>" target="_blank" class="btn-primary">Ver PDF</a>
                 <a href="<?php echo BASE_URL; ?>dashboard" class="btn-secondary">Volver</a>
             </div>
         </div>

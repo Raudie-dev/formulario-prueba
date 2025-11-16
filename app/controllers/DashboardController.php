@@ -98,6 +98,15 @@ class DashboardController extends Controller {
         $measurements = $this->formModel->getFormMeasurements($formId);
         $images = $this->formModel->getFormImages($formId);
 
+        // Convert filesystem image paths to web-accessible URLs (mantener image_path para uso en servidor/PDF)
+        foreach ($images as &$img) {
+            if (!empty($img['image_path'])) {
+                // Reemplazar ROOT_PATH por BASE_URL para obtener la URL pública
+                $img['web_path'] = str_replace(ROOT_PATH, BASE_URL, $img['image_path']);
+            }
+        }
+        unset($img);
+
         // Llamada al método heredado Controller::view() para cargar la plantilla
         $this->view('dashboard/view-form', [
             'form' => $form,
