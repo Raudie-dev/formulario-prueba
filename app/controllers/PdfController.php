@@ -31,10 +31,21 @@ class PdfController extends Controller {
         $images = $this->formModel->getFormImages($formId);
 
         // Render view HTML to string
-        $viewPath = VIEWS_PATH . 'pdf/template-view.php';
-        if (!file_exists($viewPath)) {
+        $candidates = [
+            VIEWS_PATH . 'pdf/template-view.php',
+            ROOT_PATH . 'app/view/pdf/template-view.php',
+            ROOT_PATH . 'view/pdf/template-view.php'
+        ];
+        $viewPath = null;
+        foreach ($candidates as $cand) {
+            if (file_exists($cand)) { $viewPath = $cand; break; }
+        }
+
+        if (!$viewPath) {
+            // Log the attempted paths for debugging
+            error_log('PdfController::generate - template not found. Tried: ' . implode(';', $candidates));
             // Fallback: generate basic PDF content if view is missing
-            $html = '<h1>Informe</h1><p>Plantilla de PDF no encontrada: ' . htmlspecialchars($viewPath) . '</p>';
+            $html = '<h1>Informe</h1><p>Plantilla de PDF no encontrada. Rutas intentadas: ' . htmlspecialchars(implode(', ', $candidates)) . '</p>';
         } else {
             ob_start();
             // Variables disponibles en la vista
