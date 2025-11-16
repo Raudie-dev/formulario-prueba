@@ -10,6 +10,7 @@
     <div class="dashboard">
         <nav class="navbar">
             <div class="navbar-container">
+                <img src="<?php echo BASE_URL; ?>public/img/logo.jpeg" alt="Logo" style="height:50px; width:120px; object-fit: contain;">
                 <h1 class="navbar-title">Generador de Informes</h1>
                 <div class="navbar-menu">
                     <span>Bienvenido, <?php echo htmlspecialchars($username); ?></span>

@@ -231,7 +231,9 @@
     <div class="login-wrapper">
         <div class="login-container">
             <div class="login-header">
-                <div class="login-icon">📋</div>
+                <div class="login-icon">
+                    <img src="../public/img/logo.jpeg" style="width:220px" alt="Logo">
+                </div>
                 <h1>Sistema de Informes</h1>
                 <p>Gestión de Informes de Terreno</p>
             </div>
@@ -277,9 +279,7 @@
                 </button>
             </form>
 
-            <div class="register-link">
-                ¿No tienes cuenta? <a href="<?php echo BASE_URL; ?>login/register">Regístrate aquí</a>
-            </div>
+            <!-- Sección de registro eliminada -->
         </div>
     </div>
 </body>

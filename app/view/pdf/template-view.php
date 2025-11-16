@@ -108,8 +108,8 @@
         background-color: #f8f8f8;
     }
     .photo-box img { 
-        max-width: 95%; 
-        max-height: 95%; 
+        max-width: 70%; 
+        max-height: 70%; 
         object-fit: contain;
     }
     .photo-label {
@@ -239,6 +239,19 @@ $fin_muestreo = getFormVal($form, ['fin_muestreo','fecha_hora_fin','fin','fecha_
 
 <!-- ===================== CABECERA SECUNDARIA ===================== -->
 <div class="header">
+    <div>
+        <?php if ($logo_display): ?>
+            <div class="mb-10">
+                <img src="<?php echo htmlspecialchars(rtrim(BASE_URL, '/').'/public/img/antecedentes.jpg'); ?>" 
+                     data-pdf-src="<?php echo htmlspecialchars(ROOT_PATH . 'public/img/antecedentes.jpg'); ?>" 
+                     style="max-width: 120px; max-height: 60px; object-fit: contain;">
+            </div>
+        <?php else: ?>
+            <div class="logo-box mb-10" style="margin: 0 auto 20px; width: 120px; height: 60px;">
+                LOGO
+            </div>
+        <?php endif; ?>
+    </div>
     <div class="header-left">
         <div style="font-size: 11px; font-weight: 600;">
             Generado por: <?php echo htmlspecialchars($username ?? 'Sistema'); ?>
@@ -252,7 +265,21 @@ $fin_muestreo = getFormVal($form, ['fin_muestreo','fecha_hora_fin','fin','fecha_
         <div style="margin-top: 6px;"><strong>Temperatura Primera Muestra:</strong><br><?php echo htmlspecialchars($temp_primera ?: 'N/A'); ?><?php echo $temp_primera ? ' °C' : ''; ?></div>
     </div>
 </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <!-- ===================== 1. INFORMACIÓN DEL INFORME ===================== -->
 <h2>1. Información del Informe</h2>
 

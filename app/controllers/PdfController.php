@@ -68,7 +68,7 @@ class PdfController extends Controller {
             // Logo paths
             $logo_fs = ROOT_PATH . 'public/img/logo.jpeg';
             $logo_web = rtrim(BASE_URL, '/') . '/public/img/logo.jpeg';
-
+            $antecendentes = rtrim(BASE_URL, '/') . '/public/img/antecedentes.jpg';
             include $viewPath;
             $html = ob_get_clean();
         }

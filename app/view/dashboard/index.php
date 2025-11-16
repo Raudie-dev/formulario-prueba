@@ -12,6 +12,7 @@
     <div class="dashboard">
         <nav class="navbar">
             <div class="navbar-container">
+                <img src="public/img/logo.png" alt="logo" style="height:50px; width:120px;">
                 <h1 class="navbar-title">Generador de Informes</h1>
                 <div class="navbar-menu">
                     <span>Bienvenido, <?php echo htmlspecialchars($username); ?></span>
