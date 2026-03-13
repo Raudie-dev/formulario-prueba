@@ -10,4 +10,6 @@ require_once ROOT_PATH . 'app/core/Router.php';
 
 // Initialize router
 new Router();
+
+//ni la ia nos pudo ayudar
 ?>
