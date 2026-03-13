@@ -1,5 +1,6 @@
 <?php
 // Load configuration
+// Jose  puta
 require_once 'config/config.php';
 
 // Load core files
